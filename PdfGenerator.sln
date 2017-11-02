@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfGenerator", "PdfGenerator\PdfGenerator.csproj", "{56AD4396-B821-407C-B615-5D8D88C12218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfGenerator.Tests.Unit", "PdfGenerator.Tests.Unit\PdfGenerator.Tests.Unit.csproj", "{30DCD459-365D-42F7-A930-1E61F917BA32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReferenceImplementation", "ReferenceImplementation", "{68B8444B-437A-4C9B-BE75-9FC519A3B479}"
+	ProjectSection(SolutionItems) = preProject
+		ReferenceImplementation\_TemplateLayout.cshtml = ReferenceImplementation\_TemplateLayout.cshtml
+		ReferenceImplementation\BceReportHelperReferenceImplementation.cs = ReferenceImplementation\BceReportHelperReferenceImplementation.cs
+		ReferenceImplementation\IPdfGeneratorService.cs = ReferenceImplementation\IPdfGeneratorService.cs
+		ReferenceImplementation\IZipService.cs = ReferenceImplementation\IZipService.cs
+		ReferenceImplementation\PdfGeneratorService.cs = ReferenceImplementation\PdfGeneratorService.cs
+		ReferenceImplementation\R1_RecordOfConcernSummary.cshtml = ReferenceImplementation\R1_RecordOfConcernSummary.cshtml
+		ReferenceImplementation\R4_ActionsAndReportsGrid.cshtml = ReferenceImplementation\R4_ActionsAndReportsGrid.cshtml
+		ReferenceImplementation\ReferenceHtmlImplementation.cs = ReferenceImplementation\ReferenceHtmlImplementation.cs
+		ReferenceImplementation\ReferenceImplementationForSubpoena.cs = ReferenceImplementation\ReferenceImplementationForSubpoena.cs
+		ReferenceImplementation\ZipService.cs = ReferenceImplementation\ZipService.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfGenerator.WebApi", "PdfGenerator.WebApi\PdfGenerator.WebApi.csproj", "{3F05D615-E00E-4CF0-8DA9-047DA95ED52C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{56AD4396-B821-407C-B615-5D8D88C12218} = {56AD4396-B821-407C-B615-5D8D88C12218}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{563F1AB1-C1F1-462D-B045-5DEE7B5E3B16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfGenerator.Client", "PdfGenerator.Client\PdfGenerator.Client.csproj", "{E6102B18-21AE-46F2-81F4-714BC8BCBD1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfGenerator.Client.Generated", "PdfGenerator.Client.Generated\PdfGenerator.Client.Generated.csproj", "{68E83CBB-9BD3-48AF-9240-D12AA15CF0B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56AD4396-B821-407C-B615-5D8D88C12218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56AD4396-B821-407C-B615-5D8D88C12218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56AD4396-B821-407C-B615-5D8D88C12218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56AD4396-B821-407C-B615-5D8D88C12218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30DCD459-365D-42F7-A930-1E61F917BA32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DCD459-365D-42F7-A930-1E61F917BA32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DCD459-365D-42F7-A930-1E61F917BA32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DCD459-365D-42F7-A930-1E61F917BA32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F05D615-E00E-4CF0-8DA9-047DA95ED52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F05D615-E00E-4CF0-8DA9-047DA95ED52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F05D615-E00E-4CF0-8DA9-047DA95ED52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F05D615-E00E-4CF0-8DA9-047DA95ED52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6102B18-21AE-46F2-81F4-714BC8BCBD1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6102B18-21AE-46F2-81F4-714BC8BCBD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6102B18-21AE-46F2-81F4-714BC8BCBD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6102B18-21AE-46F2-81F4-714BC8BCBD1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E83CBB-9BD3-48AF-9240-D12AA15CF0B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E83CBB-9BD3-48AF-9240-D12AA15CF0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E83CBB-9BD3-48AF-9240-D12AA15CF0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E83CBB-9BD3-48AF-9240-D12AA15CF0B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6102B18-21AE-46F2-81F4-714BC8BCBD1C} = {563F1AB1-C1F1-462D-B045-5DEE7B5E3B16}
+		{68E83CBB-9BD3-48AF-9240-D12AA15CF0B6} = {563F1AB1-C1F1-462D-B045-5DEE7B5E3B16}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E623D3A8-1E86-4657-BD69-0A618C7EDDFC}
+	EndGlobalSection
+EndGlobal

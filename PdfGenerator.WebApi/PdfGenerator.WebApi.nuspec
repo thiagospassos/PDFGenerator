@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>PdfGenerator.WebApi</id>
+    <title>BCE PDF Generator WebAPI</title>
+    <version>$version$</version>
+    <authors>Jernej Kavka (JK), ssw.com.au</authors>
+    <owners>Brisbane Catholic Education</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>BCE - PDF Generator Web API</description>
+  </metadata>
+</package>

@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .document {
+        width: 21cm;
+        min-height: 29.7cm;
+        padding: 1cm;
+        margin: 0.5cm auto;
+        border: 1px #D3D3D3 solid;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    @@media print {
+        .document {
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    .document h1 {
+        font-size: 18pt;
+    }
+
+    .document h2 {
+        font-size: 16pt;
+    }
+
+    .document h3 {
+        font-size: 12pt;
+    }
+
+    .document h1, .document h2 {
+        color: #11458A;
+    }
+
+    .document h1, .document h2, .document h3 {
+        font-family: Georgia, serif;
+    }
+
+    .document > table {
+        border-collapse: collapse;
+        width: 100%;
+        border: solid 1px #c1c1c1;
+        margin-bottom: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: solid 1px #c1c1c1;
+        margin-bottom: 20px;
+    }
+
+
+    .document .table-inline {
+        border: none;
+        width: auto;
+    }
+
+        .document .table-inline th {
+            background-color: transparent;
+        }
+
+        .document .table-inline th, .document .table-inline td {
+            padding-left: 0;
+        }
+
+    .document th {
+        background-color: #c1c1c1;
+        text-align: left;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .document th, .document td {
+        padding: 3px 6px;
+        vertical-align: top;
+    }
+
+    .document .list-inline {
+        padding-left: 0;
+        margin-left: 0;
+        list-style: none;
+    }
+
+    td.caseRecords {
+        border-top: solid 1px #c1c1c1;
+        padding: 8px;
+    }
+
+
+    #buttons {
+        margin: 15px;
+        text-align: center;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    p:first-child {
+        margin-top: 0;
+    }
+
+    @@media print {
+        #buttons {
+            display: none;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+
+    <div id="buttons">
+        <button onclick="print()">Print</button>
+        <button onclick="window.history.back()">Back</button>
+    </div>
+
+
+    <div class="document" id="document">
+        <h1>Speech and Language Pathologist System</h1>
+        <h3>Student Model.Title for <em>Model.Student.FullName</em></h3>
+        <h3>Report Created on Model.Date</h3>
+
+        <h2>Student Details</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Student Id:</th>
+                    <td>Model.Student.AltStudentNo</td>
+                    <th>Gender</th>
+                    <td>Model.Student.Gender</td>
+
+                </tr>
+                <tr>
+                    <th>First Given Name</th>
+                    <td width="50%">Model.Student.FirstName</td>
+                    <th>Current School</th>
+                    <td width="50%">Model.Student.School</td>
+                </tr>
+                <tr>
+                    <th>Preferred First Name</th>
+                    <td>Model.Student.PreferredFirstName</td>
+                    <th>Current Year</th>
+                    <td>Model.Student.YearLevel</td>
+                </tr>
+                <tr>
+                    <th>Legal Surname</th>
+                    <td>Model.Student.Surname</td>
+                    <th>Country of Birth</th>
+                    <td>Model.Student.CountryOfBirth</td>
+                </tr>
+                <tr>
+                    <th>Preferred Surname</th>
+                    <td>Model.Student.AkaSurname</td>
+                    <th>Main Language Spoken at Home</th>
+                    <td>Model.Student.LanguageSpokenAtHome</td>
+                </tr>
+                <tr>
+                    <th>DOB (age)</th>
+                    <td>Model.Student.Dob&nbsp;(Model.Student.Age)</td>
+                    <th>Indigenous Type:</th>
+                    <td>Model.Student.Heritage</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Background Information</h2>
+        @if (Model.CaseRecords == null || Model.CaseRecords.Count == 0)
+        {
+            <p>No background information found.</p>
+        }
+
+
+        @foreach (var caseRecord in Model.CaseRecords)
+        {
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Date</th>
+                        <td width="100%">@caseRecord.Date</td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.Languages) ? "class=hide" : "")>
+                        <th>EALD</th>
+                        <td>@caseRecord.Languages</td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.Background) ? "class=hide" : "")>
+                        <th>CALD</th>
+                        <td>
+                            @Raw(caseRecord.Background)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.FamilyDetails) ? "class=hide" : "")>
+                        <th> Family Details </th>
+                        <td>
+                            @Raw(caseRecord.FamilyDetails)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.LanguageBackground) ? "class=hide" : "")>
+                        <th> Language Background </th>
+                        <td>
+                            @Raw(caseRecord.LanguageBackground)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.DevelopmentalHistory) ? "class=hide" : "")>
+                        <th> Developmental History </th>
+                        <td>
+                            @Raw(caseRecord.DevelopmentalHistory)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.MedicalHistory) ? "class=hide" : "")>
+                        <th> Medical History </th>
+                        <td>
+                            @Raw(caseRecord.MedicalHistory)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.EducationalHistory) ? "class=hide" : "")>
+                        <th> Educational History </th>
+                        <td>
+                            @Raw(caseRecord.EducationalHistory)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.SocialHistory) ? "class=hide" : "")>
+                        <th> Social History </th>
+                        <td>
+                            @Raw(caseRecord.SocialHistory)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.PreviousSpeechPathologistComments) ? "class=hide" : "")>
+                        <th> Previous Speech Pathologist Comments </th>
+                        <td>
+                            @Raw(caseRecord.PreviousSpeechPathologistComments)
+                        </td>
+                    </tr>
+                    <tr @(string.IsNullOrWhiteSpace(caseRecord.AdditionalComments) ? "class=hide" : "")>
+                        <th> Additional Comments </th>
+                        <td>
+                            @Raw(caseRecord.AdditionalComments)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <br />
+        </div>
+        }
+    </div>
+
+</body>
+
+
+
+
+</html>
+
+<script type="text/javascript">
+    // hide buttons if we've opened this file from local disk
+    if (window.location.href.startsWith("file")) {
+        document.getElementById('buttons').style.display = 'none';
+    }
+</script>

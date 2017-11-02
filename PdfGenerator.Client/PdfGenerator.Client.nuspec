@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PDfGenerator.Client</id>
+    <version>$version$</version>
+    <title>BCE PDF Generator Api Client</title>
+    <authors>Jernej Kavka (JK), ssw.com.au</authors>
+    <owners>Brisbane Catholic Education</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Client library for generating PDF documents out of HTML documents.</description>
+  </metadata>
+</package>
